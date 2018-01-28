@@ -1,0 +1,242 @@
+fileFormatVersion: 2
+guid: 050215fb9a7d70347899ec9af007a9b7
+timeCreated: 1514012120
+licenseType: Free
+ModelImporter:
+  serializedVersion: 21
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: CommandTable
+    100004: ComputerPad.004
+    100006: ComputerPad.005
+    100008: ComputerPad.006
+    100010: Digicode.002
+    100012: DoorFrame.002
+    100014: Ground.004
+    100016: MainDoor.002
+    100018: miniStairs.006
+    100020: PlateformeHaute
+    100022: Roof.002
+    100024: SciFiDoor.002
+    100026: Wall.014
+    100028: Wall.015
+    100030: Wall.016
+    100032: Wall.017
+    100034: Wall.018
+    100036: BigScreenTr
+    100038: BigScreenTr.001
+    100040: ComputerPad.007
+    100042: ComputerPad.008
+    100044: ComputerUnit
+    100046: ComputerUnit.001
+    100048: ComputerUnit.002
+    100050: ComputerUnit.003
+    100052: StrategicScreen
+    100054: StrategicScreen.001
+    400000: //RootNode
+    400002: CommandTable
+    400004: ComputerPad.004
+    400006: ComputerPad.005
+    400008: ComputerPad.006
+    400010: Digicode.002
+    400012: DoorFrame.002
+    400014: Ground.004
+    400016: MainDoor.002
+    400018: miniStairs.006
+    400020: PlateformeHaute
+    400022: Roof.002
+    400024: SciFiDoor.002
+    400026: Wall.014
+    400028: Wall.015
+    400030: Wall.016
+    400032: Wall.017
+    400034: Wall.018
+    400036: BigScreenTr
+    400038: BigScreenTr.001
+    400040: ComputerPad.007
+    400042: ComputerPad.008
+    400044: ComputerUnit
+    400046: ComputerUnit.001
+    400048: ComputerUnit.002
+    400050: ComputerUnit.003
+    400052: StrategicScreen
+    400054: StrategicScreen.001
+    2300000: CommandTable
+    2300002: ComputerPad.004
+    2300004: ComputerPad.005
+    2300006: ComputerPad.006
+    2300008: Digicode.002
+    2300010: DoorFrame.002
+    2300012: Ground.004
+    2300014: MainDoor.002
+    2300016: miniStairs.006
+    2300018: PlateformeHaute
+    2300020: Roof.002
+    2300022: Wall.014
+    2300024: Wall.015
+    2300026: Wall.016
+    2300028: Wall.017
+    2300030: Wall.018
+    2300032: BigScreenTr
+    2300034: BigScreenTr.001
+    2300036: ComputerPad.007
+    2300038: ComputerPad.008
+    2300040: ComputerUnit
+    2300042: ComputerUnit.001
+    2300044: ComputerUnit.002
+    2300046: ComputerUnit.003
+    2300048: StrategicScreen
+    2300050: StrategicScreen.001
+    3300000: CommandTable
+    3300002: ComputerPad.004
+    3300004: ComputerPad.005
+    3300006: ComputerPad.006
+    3300008: Digicode.002
+    3300010: DoorFrame.002
+    3300012: Ground.004
+    3300014: MainDoor.002
+    3300016: miniStairs.006
+    3300018: PlateformeHaute
+    3300020: Roof.002
+    3300022: Wall.014
+    3300024: Wall.015
+    3300026: Wall.016
+    3300028: Wall.017
+    3300030: Wall.018
+    3300032: BigScreenTr
+    3300034: BigScreenTr.001
+    3300036: ComputerPad.007
+    3300038: ComputerPad.008
+    3300040: ComputerUnit
+    3300042: ComputerUnit.001
+    3300044: ComputerUnit.002
+    3300046: ComputerUnit.003
+    3300048: StrategicScreen
+    3300050: StrategicScreen.001
+    4300000: PlateformeHaute
+    4300002: CommandTable
+    4300004: ComputerPad.004
+    4300006: ComputerPad.005
+    4300008: ComputerPad.006
+    4300010: Wall.018
+    4300012: Wall.017
+    4300014: Wall.016
+    4300016: Digicode.002
+    4300018: Wall.015
+    4300020: MainDoor.002
+    4300022: DoorFrame.002
+    4300024: Ground.004
+    4300026: Wall.014
+    4300028: Roof.002
+    4300030: miniStairs.006
+    4300032: StrategicScreen.001
+    4300034: ComputerPad.008
+    4300036: BigScreenTr.001
+    4300038: StrategicScreen
+    4300040: BigScreenTr
+    4300042: ComputerPad.007
+    4300044: ComputerUnit.003
+    4300046: ComputerUnit.002
+    4300048: ComputerUnit.001
+    4300050: ComputerUnit
+    6400000: CommandTable
+    6400002: ComputerPad.004
+    6400004: ComputerPad.005
+    6400006: ComputerPad.006
+    6400008: Digicode.002
+    6400010: DoorFrame.002
+    6400012: Ground.004
+    6400014: MainDoor.002
+    6400016: miniStairs.006
+    6400018: PlateformeHaute
+    6400020: Roof.002
+    6400022: Wall.014
+    6400024: Wall.015
+    6400026: Wall.016
+    6400028: Wall.017
+    6400030: Wall.018
+    6400032: BigScreenTr
+    6400034: BigScreenTr.001
+    6400036: ComputerPad.007
+    6400038: ComputerPad.008
+    6400040: ComputerUnit
+    6400042: ComputerUnit.001
+    6400044: ComputerUnit.002
+    6400046: ComputerUnit.003
+    6400048: StrategicScreen
+    6400050: StrategicScreen.001
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

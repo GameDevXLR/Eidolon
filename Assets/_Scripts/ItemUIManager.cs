@@ -1,0 +1,16 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.UI;
+
+public class ItemUIManager : MonoBehaviour {
+
+    public Text textName;
+    public Text textPA;
+
+    public void setText(string name, string PA)
+    {
+        textName.text = name;
+        textPA.text = PA;
+    }
+}

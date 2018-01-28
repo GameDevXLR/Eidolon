@@ -1,0 +1,224 @@
+fileFormatVersion: 2
+guid: 5afefb7968dde5a4fb401755ba638a07
+timeCreated: 1513946245
+licenseType: Free
+ModelImporter:
+  serializedVersion: 21
+  fileIDToRecycleName:
+    100000: CommandConsole
+    100002: ComputerPad.001
+    100004: ComputerPad.002
+    100006: ComputerPad.003
+    100008: CryoPod
+    100010: CryoPod.001
+    100012: CryoPod.002
+    100014: CryoPod.003
+    100016: CryoPod.004
+    100018: CryoPod.005
+    100020: //RootNode
+    100022: Digicode.001
+    100024: DoorFrame.001
+    100026: Ground.002
+    100028: MainDoor.001
+    100030: miniStairs
+    100032: miniStairs.001
+    100034: miniStairs.002
+    100036: miniStairs.003
+    100038: miniStairs.004
+    100040: miniStairs.005
+    100042: SciFiDoor.001
+    100044: Wall.009
+    100046: Wall.010
+    100048: WaterRecycler
+    400000: CommandConsole
+    400002: ComputerPad.001
+    400004: ComputerPad.002
+    400006: ComputerPad.003
+    400008: CryoPod
+    400010: CryoPod.001
+    400012: CryoPod.002
+    400014: CryoPod.003
+    400016: CryoPod.004
+    400018: CryoPod.005
+    400020: //RootNode
+    400022: Digicode.001
+    400024: DoorFrame.001
+    400026: Ground.002
+    400028: MainDoor.001
+    400030: miniStairs
+    400032: miniStairs.001
+    400034: miniStairs.002
+    400036: miniStairs.003
+    400038: miniStairs.004
+    400040: miniStairs.005
+    400042: SciFiDoor.001
+    400044: Wall.009
+    400046: Wall.010
+    400048: WaterRecycler
+    2300000: CommandConsole
+    2300002: ComputerPad.001
+    2300004: ComputerPad.002
+    2300006: ComputerPad.003
+    2300008: CryoPod
+    2300010: CryoPod.001
+    2300012: CryoPod.002
+    2300014: CryoPod.003
+    2300016: CryoPod.004
+    2300018: CryoPod.005
+    2300020: Digicode.001
+    2300022: DoorFrame.001
+    2300024: Ground.002
+    2300026: MainDoor.001
+    2300028: miniStairs
+    2300030: miniStairs.001
+    2300032: miniStairs.002
+    2300034: miniStairs.003
+    2300036: miniStairs.004
+    2300038: miniStairs.005
+    2300040: Wall.009
+    2300042: Wall.010
+    2300044: WaterRecycler
+    3300000: CommandConsole
+    3300002: ComputerPad.001
+    3300004: ComputerPad.002
+    3300006: ComputerPad.003
+    3300008: CryoPod
+    3300010: CryoPod.001
+    3300012: CryoPod.002
+    3300014: CryoPod.003
+    3300016: CryoPod.004
+    3300018: CryoPod.005
+    3300020: Digicode.001
+    3300022: DoorFrame.001
+    3300024: Ground.002
+    3300026: MainDoor.001
+    3300028: miniStairs
+    3300030: miniStairs.001
+    3300032: miniStairs.002
+    3300034: miniStairs.003
+    3300036: miniStairs.004
+    3300038: miniStairs.005
+    3300040: Wall.009
+    3300042: Wall.010
+    3300044: WaterRecycler
+    4300000: miniStairs.005
+    4300002: miniStairs.004
+    4300004: miniStairs.003
+    4300006: miniStairs.002
+    4300008: miniStairs.001
+    4300010: miniStairs
+    4300012: CryoPod.005
+    4300014: CryoPod.004
+    4300016: CryoPod.003
+    4300018: Wall.009
+    4300020: Ground.002
+    4300022: DoorFrame.001
+    4300024: MainDoor.001
+    4300026: Wall.010
+    4300028: Digicode.001
+    4300030: CryoPod
+    4300032: CryoPod.001
+    4300034: CryoPod.002
+    4300036: CommandConsole
+    4300038: ComputerPad.003
+    4300040: ComputerPad.002
+    4300042: ComputerPad.001
+    4300044: WaterRecycler
+    6400000: CommandConsole
+    6400002: ComputerPad.001
+    6400004: ComputerPad.002
+    6400006: ComputerPad.003
+    6400008: CryoPod
+    6400010: CryoPod.001
+    6400012: CryoPod.002
+    6400014: CryoPod.003
+    6400016: CryoPod.004
+    6400018: CryoPod.005
+    6400020: Digicode.001
+    6400022: DoorFrame.001
+    6400024: Ground.002
+    6400026: MainDoor.001
+    6400028: miniStairs
+    6400030: miniStairs.001
+    6400032: miniStairs.002
+    6400034: miniStairs.003
+    6400036: miniStairs.004
+    6400038: miniStairs.005
+    6400040: Wall.009
+    6400042: Wall.010
+    6400044: WaterRecycler
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
