@@ -11,7 +11,7 @@ public class InteractionPlayerManager : MonoBehaviour {
     public GameObject playerObject;
 
     public GameObject prefabUIListObj;
-
+    public GameObject UIList;
     #endregion
 
     #region other variables
@@ -34,7 +34,7 @@ public class InteractionPlayerManager : MonoBehaviour {
             path.ClearCorners();
             if(NavMesh.CalculatePath(transform.position, obj.GetComponent<ItemManager>().positionArret.transform.position, NavMesh.AllAreas, path))
             {
-                int PA = (int)(GetPathLength(path) / distanceByAction);
+                int PA = (int)(GetPathLength(path) / distanceByAction) +1 ;
                 if (objInteractableDict.ContainsKey(PA))
                 {
                     objInteractableDict[PA].Add(obj);
@@ -52,6 +52,7 @@ public class InteractionPlayerManager : MonoBehaviour {
                 Debug.Log("false ==> " + obj.name + " : " + obj.GetComponent<ItemManager>().positionArret.transform.position);
             }
         }
+        addObjInUIList();
 
     }
     #endregion
@@ -81,7 +82,9 @@ public class InteractionPlayerManager : MonoBehaviour {
             {
                 foreach(GameObject obj in entry.Value)
                 {
-
+                    GameObject uiObj = Instantiate(prefabUIListObj);
+                    uiObj.transform.SetParent(UIList.transform);
+                    uiObj.GetComponent<ItemUIManager>().setText(obj.GetComponent<ItemManager>().nameItem, "PA : " + entry.Key);
                 }
             }
         }

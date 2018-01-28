@@ -5,5 +5,5 @@ using UnityEngine;
 public class ItemManager : MonoBehaviour {
 
     public GameObject positionArret;
-    public string name;
+    public string nameItem;
 }

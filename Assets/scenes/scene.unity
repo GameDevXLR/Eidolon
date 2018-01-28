@@ -666,7 +666,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   positionArret: {fileID: 515307547}
-  name: 
+  nameItem: Digicode
 --- !u!95 &637547408 stripped
 Animator:
   m_PrefabParentObject: {fileID: 95162210800738588, guid: 1df87360bf1664340a48a84d69a74b8d,
@@ -1110,7 +1110,7 @@ MonoBehaviour:
   m_HorizontalScrollbarVisibility: 2
   m_VerticalScrollbarVisibility: 2
   m_HorizontalScrollbarSpacing: 3
-  m_VerticalScrollbarSpacing: -3
+  m_VerticalScrollbarSpacing: 3
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -1136,7 +1136,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   positionArret: {fileID: 1853648621}
-  name: 
+  nameItem: Cryopod 5
 --- !u!1 &1078139335 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 100010, guid: 5afefb7968dde5a4fb401755ba638a07, type: 3}
@@ -1157,7 +1157,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   positionArret: {fileID: 568078367}
-  name: 
+  nameItem: Cryopod 2
 --- !u!1 &1174120797
 GameObject:
   m_ObjectHideFlags: 0
@@ -1206,7 +1206,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   positionArret: {fileID: 1263063563}
-  name: 
+  nameItem: Cryopod 3
 --- !u!1 &1263063563
 GameObject:
   m_ObjectHideFlags: 0
@@ -1323,7 +1323,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   positionArret: {fileID: 744110543}
-  name: 
+  nameItem: Cryopod 1
 --- !u!1 &1554429158
 GameObject:
   m_ObjectHideFlags: 0
@@ -1454,7 +1454,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   positionArret: {fileID: 1878210351}
-  name: 
+  nameItem: Console
 --- !u!1 &1615939064
 GameObject:
   m_ObjectHideFlags: 0
@@ -1614,6 +1614,7 @@ MonoBehaviour:
   playerObject: {fileID: 1710232765}
   prefabUIListObj: {fileID: 1257656444001660, guid: a676fc6a4387dbf48ae8b66129083804,
     type: 2}
+  UIList: {fileID: 1680228390}
 --- !u!195 &1710232774
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -1873,7 +1874,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   positionArret: {fileID: 1615939064}
-  name: 
+  nameItem: Cryopod 6
 --- !u!1 &1950252482
 GameObject:
   m_ObjectHideFlags: 0
@@ -2072,7 +2073,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   positionArret: {fileID: 663055436}
-  name: 
+  nameItem: Water Recycler
 --- !u!1 &2055137063 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 100014, guid: 5afefb7968dde5a4fb401755ba638a07, type: 3}
@@ -2093,7 +2094,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   positionArret: {fileID: 1654098018}
-  name: 
+  nameItem: Cryopod 4
 --- !u!1 &2131335649
 GameObject:
   m_ObjectHideFlags: 0
