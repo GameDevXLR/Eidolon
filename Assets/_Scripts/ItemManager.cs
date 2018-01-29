@@ -11,9 +11,11 @@ public class ItemManager : MonoBehaviour {
 
     private void OnMouseDown()
     {
-        Debug.Log(GameManager.instance.player != null);
-        Debug.Log(GameManager.instance.player.GetComponent<CharacIsomController>() != null);
-        Debug.Log(path != null);
+        action();
+    }
+
+    public void action()
+    {
         GameManager.instance.player.GetComponent<CharacIsomController>().setPath(path);
     }
 }

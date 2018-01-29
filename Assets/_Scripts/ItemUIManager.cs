@@ -15,4 +15,9 @@ public class ItemUIManager : MonoBehaviour {
         textName.text = name;
         textPA.text = PA;
     }
+
+    public void action()
+    {
+        item.action();
+    }
 }
