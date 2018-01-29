@@ -28,13 +28,13 @@ public class InteractionPlayerManager : MonoBehaviour {
     {
         _navMeshAgent = playerObject.GetComponent<NavMeshAgent>();
         objInteractableDict = new Dictionary<int, List<GameObject>>();
-        NavMeshPath path = new NavMeshPath();
         foreach (GameObject obj in objectInteractableList)
         {
-            path.ClearCorners();
-            if(NavMesh.CalculatePath(transform.position, obj.GetComponent<ItemManager>().positionArret.transform.position, NavMesh.AllAreas, path))
+            obj.GetComponent<ItemManager>().path = new NavMeshPath();
+            if (NavMesh.CalculatePath(transform.position, obj.GetComponent<ItemManager>().positionArret.transform.position, NavMesh.AllAreas, obj.GetComponent<ItemManager>().path))
             {
-                int PA = (int)(GetPathLength(path) / distanceByAction) +1 ;
+                
+                int PA = (int)(GetPathLength(obj.GetComponent<ItemManager>().path) / distanceByAction) +1 ;
                 if (objInteractableDict.ContainsKey(PA))
                 {
                     objInteractableDict[PA].Add(obj);
@@ -44,8 +44,8 @@ public class InteractionPlayerManager : MonoBehaviour {
                     objInteractableDict.Add(PA, new List<GameObject>());
                     objInteractableDict[PA].Add(obj);
                 }
-                for (int i = 0; i < path.corners.Length - 1; i++)
-                    Debug.DrawLine(path.corners[i], path.corners[i + 1], Color.red, 100);
+                for (int i = 0; i < obj.GetComponent<ItemManager>().path.corners.Length - 1; i++)
+                    Debug.DrawLine(obj.GetComponent<ItemManager>().path.corners[i], obj.GetComponent<ItemManager>().path.corners[i + 1], Color.red, 100);
             }
             else
             {
@@ -85,6 +85,7 @@ public class InteractionPlayerManager : MonoBehaviour {
                     GameObject uiObj = Instantiate(prefabUIListObj);
                     uiObj.transform.SetParent(UIList.transform);
                     uiObj.GetComponent<ItemUIManager>().setText(obj.GetComponent<ItemManager>().nameItem, "PA : " + entry.Key);
+                    uiObj.GetComponent<ItemUIManager>().item = obj.GetComponent<ItemManager>();
                 }
             }
         }

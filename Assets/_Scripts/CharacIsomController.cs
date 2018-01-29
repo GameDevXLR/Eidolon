@@ -38,10 +38,7 @@ public class CharacIsomController : MonoBehaviour {
 				Ray ray = Camera.main.ScreenPointToRay (Input.mousePosition);
 				RaycastHit[] hits = Physics.RaycastAll(ray, 2000f, layer_mask);
                 if (hits.Length > 0) {
-                    agent.SetDestination (hits [0].point);
-					anim.SetBool ("Run", true);
-					isMoving = true;
-                    Debug.Log(hits[0].point);
+                    //setPath(hits[0].point);
 				}
 
             }
@@ -55,9 +52,7 @@ public class CharacIsomController : MonoBehaviour {
 		{
 			if (Vector3.Distance(transform.position, agent.destination)<2f) 
 			{
-				anim.SetBool ("Run", false);
-				isMoving = false;
-
+                stopMoving();
 			}
 		}
 	}
@@ -75,4 +70,29 @@ public class CharacIsomController : MonoBehaviour {
 		transform.forward = faceDir;
 
 	}
+
+    public void setPath(Vector3 destination)
+    {
+        agent.SetDestination(destination);
+        beginMoving();
+    }
+
+    public void setPath(NavMeshPath path)
+    {
+        agent.SetPath(path);
+        beginMoving();
+    }
+
+    public void beginMoving()
+    {
+        anim.SetBool("Run", true);
+        isMoving = true;
+    }
+
+    public void stopMoving()
+    {
+        anim.SetBool("Run", false);
+        isMoving = false;
+    }
+
 }
