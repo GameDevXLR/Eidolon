@@ -24,6 +24,7 @@ GameObject:
   - component: {fileID: 114929309455431536}
   - component: {fileID: 114748468629787018}
   - component: {fileID: 114202618413074908}
+  - component: {fileID: 114761394678539238}
   m_Layer: 5
   m_Name: ObjUIPrefab
   m_TagString: Untagged
@@ -224,6 +225,25 @@ MonoBehaviour:
   textName: {fileID: 114490697223667088}
   textPA: {fileID: 114693389008813862}
   item: {fileID: 0}
+--- !u!114 &114761394678539238
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1257656444001660}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1679637790, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IgnoreLayout: 0
+  m_MinWidth: -1
+  m_MinHeight: -1
+  m_PreferredWidth: 100
+  m_PreferredHeight: -1
+  m_FlexibleWidth: -1
+  m_FlexibleHeight: -1
+  m_LayoutPriority: 1
 --- !u!114 &114929309455431536
 MonoBehaviour:
   m_ObjectHideFlags: 1

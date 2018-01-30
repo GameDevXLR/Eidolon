@@ -28,3 +28,9 @@ Assets/Sounds.meta
 Assets/Plugins
 Assets/Standard Assets/Characters/
 Assets/Materials/Textures/grey dirt stones.tga
+Assets/PostProcessing/Textures/Lens Dirt/LensDirt03.png
+Assets/PostProcessing/Textures/Lens Dirt/LensDirt02.png
+Assets/PostProcessing/Textures/Lens Dirt/LensDirt01.png
+Assets/PostProcessing/Textures/Lens Dirt/LensDirt00.png
+Assets/PostProcessing/Textures/LUTs/NeutralLUT_32.png
+Assets/PostProcessing/Textures/LUTs/NeutralLUT_16.png
