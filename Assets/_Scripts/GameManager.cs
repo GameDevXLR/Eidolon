@@ -18,6 +18,7 @@ public class GameManager : MonoBehaviour {
     public int PACurrent;
 
     public Text PATxt;
+    public GameObject PAPanel;
 
     #endregion
 
@@ -29,6 +30,8 @@ public class GameManager : MonoBehaviour {
         {
             instance = this;
             PATxt.text = PACurrent.ToString();
+            DialogueController.instance.Initialize(0);
+            PAPanel.SetActive(false);
         }
         else
         {
@@ -38,6 +41,12 @@ public class GameManager : MonoBehaviour {
     #endregion
 
     #region other Methods
+    public void activePA()
+    {
+        PAPanel.SetActive(true);
+        isInDialogue = false;
+    }
+
     public void setPlayerPath(NavMeshPath path)
     {
         player.GetComponent<CharacIsomController>().setPath(path);

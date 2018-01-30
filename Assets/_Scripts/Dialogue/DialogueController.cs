@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class DialogueController : MonoBehaviour {
 
+    public static DialogueController instance;
+
     #region editor variable
     public List<DialogueScriptableObj> dialogues;
     public Image portraitPerso1;
@@ -24,31 +26,47 @@ public class DialogueController : MonoBehaviour {
     Sentence sentences;
     #endregion
 
-#region monobehaviour methods
-    private void Start()
+    #region monobehaviour methods
+
+    private void Awake()
     {
-        diaCurrent = dialogues[dialogueCurrent];
-        sentences = diaCurrent.sentences[currentSentences++];
-        foreach(string sentence in sentences.sentenceList)
-        {
-            GameObject obj = Instantiate(textPrefab);
-            obj.transform.SetParent(discutionPanel.transform);
-            Text txt = obj.GetComponent<Text>();
-            txt.text = sentence;
-            txt.color = diaCurrent.personnage[sentences.player-1].couleurDialogue;
-        }
+        instance = this;
     }
+
+    //private void Start()
+    //{
+    //    diaCurrent = dialogues[dialogueCurrent];
+    //    changeSentence();
+    //}
 
     private void Update()
     {
-        if (Input.GetMouseButtonUp(0) && currentSentences < diaCurrent.sentences.Count)
+        if (Input.GetMouseButtonUp(0))
         {
-            changeSentence();
+            if (currentSentences < diaCurrent.sentences.Count)
+                changeSentence();
+            else if (currentSentences == diaCurrent.sentences.Count)
+                currentSentences++;
+            else if (currentSentences > diaCurrent.sentences.Count)
+            {
+                gameObject.SetActive(false);
+                GameManager.instance.activePA();
+            }
+                
         }   
+        
     }
     #endregion
 
     #region other methods
+
+    public void Initialize(int dialogueIndex)
+    {
+
+        diaCurrent = dialogues[dialogueIndex];
+        changeSentence();
+        gameObject.SetActive(true);
+    }
 
     public void changeSentence()
     {
@@ -61,11 +79,12 @@ public class DialogueController : MonoBehaviour {
             {
                 string sentence = sentences.sentenceList[i];
                 if(sentences.choice)
-                    addChoice(sentence, diaCurrent.sentences[currentSentences +1].sentenceList[i], sentences.player - 1);
+                    addChoice(sentence, diaCurrent.sentences[currentSentences +1].sentenceList[i], sentences.player);
                 else
                     addSentence(sentence, sentences.player - 1);
 
             }
+            setAlphaPortrait(sentences.player);
             currentSentences++;
         }
         
@@ -86,18 +105,20 @@ public class DialogueController : MonoBehaviour {
         obj.transform.SetParent(discutionPanel.transform);
         Text txt = obj.GetComponent<Text>();
         txt.text = choice;
-        txt.color = diaCurrent.personnage[player].couleurDialogue;
+        txt.color = diaCurrent.personnage[player-1].couleurDialogue;
         Button button = obj.GetComponent<Button>();
         button.onClick.AddListener(
             delegate {
-                addAnswer(answer, diaCurrent.sentences[currentSentences].player-1);
+                addAnswer(answer, diaCurrent.sentences[currentSentences].player);
             });
     }
 
     public void addAnswer(string sentence, int player)
     {
         emptyBox();
-        addSentence(sentence, player);
+        addSentence(sentence, player-1);
+        setAlphaPortrait(player);
+        currentSentences++;
     }
 
     public void emptyBox()
@@ -106,6 +127,29 @@ public class DialogueController : MonoBehaviour {
         {
             Destroy(child.gameObject);
         }
+    }
+
+    public void setAlphaPortrait(int perso)
+    {
+        if(perso == 1)
+        {
+            Color c = portraitPerso1.color;
+            c.a = 1f;
+            portraitPerso1.color = c;
+            Color c2 = portraitPerso2.color;
+            c2.a = 0.2f;
+            portraitPerso2.color = c2;
+        }
+        else if(perso == 2)
+        {
+            Color c = portraitPerso1.color;
+            c.a = 0.2f;
+            portraitPerso1.color = c;
+            c = portraitPerso2.color;
+            c.a = 1f;
+            portraitPerso2.color = c;
+        }
+
     }
 
 #endregion
