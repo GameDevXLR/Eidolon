@@ -1,0 +1,60 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4882dca037263947872d9d37f764138, type: 3}
+  m_Name: Dialogue1
+  m_EditorClassIdentifier: 
+  sentences:
+  - player: 1
+    choice: 0
+    answer: 0
+    sentenceList:
+    - Damn! What was that fracking thing! It killed everyone! Shit... look at your
+      leg!
+  - player: 2
+    choice: 0
+    answer: 0
+    sentenceList:
+    - That thing thorn my skin off... I'm bleeding out. I can't walk. I'm going to
+      die... I'm going to bleed to death...
+  - player: 1
+    choice: 0
+    answer: 0
+    sentenceList:
+    - We need to get out of here, we need to get to the elevator before the things
+      get to us. You saw what they can do!
+  - player: 2
+    choice: 0
+    answer: 0
+    sentenceList:
+    - I can't ! I can't move anymore! I can't put my damn leg on the ground!
+  - player: 1
+    choice: 1
+    answer: 0
+    sentenceList:
+    - 'Option 1 (anger) : Well break a leg, get back on stage and moove on ! That''s
+      the only way you''re not going to be eaten alive.'
+    - 'Option 2 (provoke) : Move your fat ass Rachael or I can promise that you will
+      loose more than a leg. This thing is going to eat us both if we don''t get out
+      of here right now. We need to get to that elevator and I''m not going to die
+      because you feel lazy today!'
+    - 'Option 3 (compassion) : I swear that we will get to this elevator together.
+      I swear, we will fix you up. I will help you to get up. I know it hurts but
+      we have to go now.'
+  - player: 2
+    choice: 0
+    answer: 1
+    sentenceList:
+    - Stop messing around Kara. Give me a minute and we move.
+    - Shut up and keep you're breath for the run big girl. I will be ok now.
+    - ' Ok... Help me get up then.'
+  personnage:
+  - {fileID: 11400000, guid: 3280a53522aa3d843b7519290452de95, type: 2}
+  - {fileID: 11400000, guid: 6a310fed17dd5904b93d4dd2129e800a, type: 2}

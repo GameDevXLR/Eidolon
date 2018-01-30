@@ -11,11 +11,14 @@ public class ItemManager : MonoBehaviour {
 
     private void OnMouseDown()
     {
-        action();
+        if (!GameManager.instance.isInDialogue)
+        {
+            action();
+        }
     }
 
     public void action()
     {
-        GameManager.instance.player.GetComponent<CharacIsomController>().setPath(path);
+        GameManager.instance.setPlayerPath(path);
     }
 }
