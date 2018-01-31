@@ -10,6 +10,8 @@ public class GameManager : MonoBehaviour {
 
     public static GameManager instance;
 
+    public CameraController cam;
+
     public InteractionPlayerManager playerCurrent;
 
     public bool isInDialogue = true;
@@ -53,7 +55,12 @@ public class GameManager : MonoBehaviour {
         playerCurrent.GetComponent<CharacIsomController>().setPath(path);
     }
 
-    
+    public void changePerso(InteractionPlayerManager perso)
+    {
+        playerCurrent = perso;
+        perso.init();
+        cam.thePlayer = perso.gameObject;
+    }
     
     #endregion
 }

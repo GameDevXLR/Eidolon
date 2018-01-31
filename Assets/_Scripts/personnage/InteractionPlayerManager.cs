@@ -62,6 +62,13 @@ public class InteractionPlayerManager : MonoBehaviour {
         return lng;
     }
 
+    public void init()
+    {
+        objInteractableDict.Clear();
+        calculatePA();
+        addObjInUIList();
+    }
+
     public void addObjInUIList()
     {
         emptyBox();
