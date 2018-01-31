@@ -13,6 +13,9 @@ public class CharacIsomController : MonoBehaviour {
 	NavMeshAgent agent;
 	public Animator anim;
 	bool isMoving;
+
+    public GameObject sourisPointer;
+
 	// Use this for initialization
 	void Start () 
 	{
@@ -27,23 +30,39 @@ public class CharacIsomController : MonoBehaviour {
 	// Update is called once per frame
 	void Update () 
 	{
-		if (!mouseClicControlled && Input.anyKey) 
-		{
-			ExecuteMovement ();
-		}
-        if (mouseClicControlled) 
-		{
-			if (Input.GetMouseButtonDown (0)) 
-			{
-				Ray ray = Camera.main.ScreenPointToRay (Input.mousePosition);
-				RaycastHit[] hits = Physics.RaycastAll(ray, 2000f, layer_mask);
-                if (hits.Length > 0) {
-                    //setPath(hits[0].point);
-				}
-
+        if (!GameManager.instance.isInDialogue)
+        {
+            if (!mouseClicControlled && Input.anyKey)
+            {
+                ExecuteMovement();
             }
-		}
-		
+            if (mouseClicControlled)
+            {
+                if (Input.GetMouseButton(0))
+                {
+                    Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+                    RaycastHit[] hits = Physics.RaycastAll(ray, 2000f, layer_mask);
+                    if (hits.Length > 0)
+                    {
+                        setPath(hits[0].point);
+                        sourisPointer.SetActive(true);
+                        sourisPointer.transform.position = hits[0].point;
+                        NavMeshPath path = new NavMeshPath();
+                        if (NavMesh.CalculatePath(transform.position, hits[0].point, NavMesh.AllAreas, path))
+                        {
+
+                            int PA = (int)(InteractionPlayerManager.GetPathLength(path) / gameObject.GetComponent<InteractionPlayerManager>().distanceByAction) + 1;
+                            sourisPointer.GetComponentInChildren<TextMesh>().text = PA.ToString();
+                        }
+                    }
+
+                }
+                if (Input.GetMouseButtonUp(0))
+                {
+
+                }
+            }
+        }
 	}
 
 	void LateUpdate()
@@ -85,13 +104,13 @@ public class CharacIsomController : MonoBehaviour {
 
     public void beginMoving()
     {
-        anim.SetBool("Run", true);
+        anim.SetBool("Walk", true);
         isMoving = true;
     }
 
     public void stopMoving()
     {
-        anim.SetBool("Run", false);
+        anim.SetBool("Walk", false);
         isMoving = false;
     }
 

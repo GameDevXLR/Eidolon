@@ -17,6 +17,8 @@ public class InteractionPlayerManager : MonoBehaviour {
     public int PA;
     public int PAmax;
 
+    public int stresse;
+
     PersonnageScriptableObj perso;
 
     public Text PATxt;
@@ -125,9 +127,6 @@ public class InteractionPlayerManager : MonoBehaviour {
 
     public void setPA(int PA)
     {
-        Debug.Log(PA);
-        Debug.Log(this.PA);
-
         this.PA += PA;
         PATxt.text = this.PA.ToString();
     }
