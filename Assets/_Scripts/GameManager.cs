@@ -10,14 +10,10 @@ public class GameManager : MonoBehaviour {
 
     public static GameManager instance;
 
-    public GameObject player;
+    public InteractionPlayerManager playerCurrent;
 
     public bool isInDialogue = true;
-
-    public int PAMax;
-    public int PACurrent;
-
-    public Text PATxt;
+    
     public GameObject PAPanel;
 
     #endregion
@@ -29,7 +25,7 @@ public class GameManager : MonoBehaviour {
         if(instance == null)
         {
             instance = this;
-            PATxt.text = PACurrent.ToString();
+            isInDialogue = true;
             DialogueController.instance.Initialize(0);
             PAPanel.SetActive(false);
         }
@@ -49,31 +45,15 @@ public class GameManager : MonoBehaviour {
 
     public void setPlayerPath(NavMeshPath path)
     {
-        player.GetComponent<CharacIsomController>().setPath(path);
+        playerCurrent.GetComponent<CharacIsomController>().setPath(path);
+
     }
     public void setPlayerPath(Vector3 path)
     {
-        player.GetComponent<CharacIsomController>().setPath(path);
+        playerCurrent.GetComponent<CharacIsomController>().setPath(path);
     }
 
-
-    public void minusPA()
-    {
-        PACurrent--;
-        setPAText();
-    }
-
-
-    public void addPA()
-    {
-        PACurrent++;
-        setPAText();
-    }
-
-
-    public void setPAText()
-    {
-        PATxt.text = PACurrent.ToString();
-    }
+    
+    
     #endregion
 }

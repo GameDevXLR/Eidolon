@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.UI;
 
 public class InteractionPlayerManager : MonoBehaviour {
 
@@ -12,6 +13,15 @@ public class InteractionPlayerManager : MonoBehaviour {
 
     public GameObject prefabUIListObj;
     public GameObject UIList;
+
+    public int PA;
+    public int PAmax;
+
+    PersonnageScriptableObj perso;
+
+    public Text PATxt;
+    public Image portrait;
+
     #endregion
 
     #region other variables
@@ -28,31 +38,9 @@ public class InteractionPlayerManager : MonoBehaviour {
     {
         _navMeshAgent = playerObject.GetComponent<NavMeshAgent>();
         objInteractableDict = new Dictionary<int, List<GameObject>>();
-        foreach (GameObject obj in objectInteractableList)
-        {
-            obj.GetComponent<ItemManager>().path = new NavMeshPath();
-            if (NavMesh.CalculatePath(transform.position, obj.GetComponent<ItemManager>().positionArret.transform.position, NavMesh.AllAreas, obj.GetComponent<ItemManager>().path))
-            {
-                
-                int PA = (int)(GetPathLength(obj.GetComponent<ItemManager>().path) / distanceByAction) +1 ;
-                if (objInteractableDict.ContainsKey(PA))
-                {
-                    objInteractableDict[PA].Add(obj);
-                }
-                else
-                {
-                    objInteractableDict.Add(PA, new List<GameObject>());
-                    objInteractableDict[PA].Add(obj);
-                }
-                for (int i = 0; i < obj.GetComponent<ItemManager>().path.corners.Length - 1; i++)
-                    Debug.DrawLine(obj.GetComponent<ItemManager>().path.corners[i], obj.GetComponent<ItemManager>().path.corners[i + 1], Color.red, 100);
-            }
-            else
-            {
-                Debug.Log("false ==> " + obj.name + " : " + obj.GetComponent<ItemManager>().positionArret.transform.position);
-            }
-        }
+        calculatePA();
         addObjInUIList();
+        PATxt.text = PA.ToString();
 
     }
     #endregion
@@ -76,6 +64,7 @@ public class InteractionPlayerManager : MonoBehaviour {
 
     public void addObjInUIList()
     {
+        emptyBox();
         foreach(KeyValuePair<int, List<GameObject>> entry in objInteractableDict)
         {
             if(entry.Key != -1)
@@ -90,6 +79,52 @@ public class InteractionPlayerManager : MonoBehaviour {
             }
         }
     }
+
+    public void calculatePA()
+    {
+        foreach (GameObject obj in objectInteractableList)
+        {
+            obj.GetComponent<ItemManager>().path = new NavMeshPath();
+            if (NavMesh.CalculatePath(transform.position, obj.GetComponent<ItemManager>().positionArret.transform.position, NavMesh.AllAreas, obj.GetComponent<ItemManager>().path))
+            {
+
+                int PA = (int)(GetPathLength(obj.GetComponent<ItemManager>().path) / distanceByAction) + 1;
+                obj.GetComponent<ItemManager>().PA = PA;
+                if (objInteractableDict.ContainsKey(PA))
+                {
+                    objInteractableDict[PA].Add(obj);
+                }
+                else
+                {
+                    objInteractableDict.Add(PA, new List<GameObject>());
+                    objInteractableDict[PA].Add(obj);
+                }
+                for (int i = 0; i < obj.GetComponent<ItemManager>().path.corners.Length - 1; i++)
+                    Debug.DrawLine(obj.GetComponent<ItemManager>().path.corners[i], obj.GetComponent<ItemManager>().path.corners[i + 1], Color.red, 100);
+            }
+            else
+            {
+                Debug.Log("false ==> " + obj.name + " : " + obj.GetComponent<ItemManager>().positionArret.transform.position);
+            }
+        }
+    }
+    public void emptyBox()
+    {
+        foreach (Transform child in UIList.transform)
+        {
+            Destroy(child.gameObject);
+        }
+    }
+
+    public void setPA(int PA)
+    {
+        Debug.Log(PA);
+        Debug.Log(this.PA);
+
+        this.PA += PA;
+        PATxt.text = this.PA.ToString();
+    }
+
 
     #endregion
 

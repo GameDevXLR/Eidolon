@@ -19,5 +19,17 @@ public class ItemUIManager : MonoBehaviour {
     public void action()
     {
         item.action();
+        
     }
+
+    public void enterHover()
+    {
+        item.enterHover();
+    }
+
+    public void exitHover()
+    {
+        item.exitHover();
+    }
+
 }
