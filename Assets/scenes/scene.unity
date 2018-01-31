@@ -2312,6 +2312,11 @@ Animator:
   m_PrefabParentObject: {fileID: 95964036400951240, guid: 3f5cdb29391d44d419e747bbeb62be72,
     type: 2}
   m_PrefabInternal: {fileID: 108494183}
+--- !u!95 &902152083 stripped
+Animator:
+  m_PrefabParentObject: {fileID: 95964036400951240, guid: 3f5cdb29391d44d419e747bbeb62be72,
+    type: 2}
+  m_PrefabInternal: {fileID: 918380118}
 --- !u!1001 &918380118
 Prefab:
   m_ObjectHideFlags: 0
@@ -2541,11 +2546,6 @@ GameObject:
   m_PrefabParentObject: {fileID: 1731447942299080, guid: 1df87360bf1664340a48a84d69a74b8d,
     type: 2}
   m_PrefabInternal: {fileID: 1166948338}
---- !u!95 &1166948340 stripped
-Animator:
-  m_PrefabParentObject: {fileID: 95162210800738588, guid: 1df87360bf1664340a48a84d69a74b8d,
-    type: 2}
-  m_PrefabInternal: {fileID: 1166948338}
 --- !u!195 &1166948341
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -2606,7 +2606,7 @@ MonoBehaviour:
   layer_mask:
     serializedVersion: 2
     m_Bits: 4294967295
-  anim: {fileID: 1166948340}
+  anim: {fileID: 902152083}
   sourisPointer: {fileID: 1662336827}
 --- !u!4 &1166948348 stripped
 Transform:
