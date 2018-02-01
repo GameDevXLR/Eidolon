@@ -14,6 +14,8 @@ public class CharacIsomController : MonoBehaviour {
 	public Animator anim;
 	bool isMoving;
 
+    bool coroutine = false;
+
     public GameObject sourisPointer;
 
 	// Use this for initialization
@@ -38,34 +40,43 @@ public class CharacIsomController : MonoBehaviour {
             }
             if (mouseClicControlled)
             {
-                if (Input.GetMouseButton(0))
+                if (Input.GetMouseButtonDown(0) && !coroutine)
                 {
+
+                    StartCoroutine(setMousePointer());
                     
-                    Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-                    RaycastHit[] hits = Physics.RaycastAll(ray, 2000f, layer_mask);
-                    if (hits.Length > 0)
-                    {
-                        setPath(hits[0].point);
-                        sourisPointer.SetActive(true);
-                        sourisPointer.transform.position = hits[0].point;
-                        NavMeshPath path = new NavMeshPath();
-                        if (NavMesh.CalculatePath(transform.position, hits[0].point, NavMesh.AllAreas, path))
-                        {
-
-                            int PA = (int)(InteractionPlayerManager.GetPathLength(path) / gameObject.GetComponent<InteractionPlayerManager>().distanceByAction) + 1;
-                            sourisPointer.GetComponentInChildren<TextMesh>().text = PA.ToString();
-                        }
-                    }
-
-                }
-                if (Input.GetMouseButtonUp(0))
-                {
 
                 }
             }
         }
 	}
 
+
+    IEnumerator setMousePointer()
+    {
+        coroutine = true;
+        while (Input.GetMouseButton(0))
+        {
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            RaycastHit[] hits = Physics.RaycastAll(ray, 2000f, layer_mask);
+            if (hits.Length > 0)
+            {
+                setPath(hits[0].point);
+                NavMeshPath path = new NavMeshPath();
+                if (NavMesh.CalculatePath(transform.position, hits[0].point, NavMesh.AllAreas, path))
+                {
+
+                    int PA = (int)(InteractionPlayerManager.GetPathLength(path) / gameObject.GetComponent<InteractionPlayerManager>().distanceByAction) + 1;
+
+                    sourisPointer.SetActive(true);
+                    sourisPointer.transform.position = Vector3.Lerp(sourisPointer.transform.position, hits[0].point, Time.deltaTime * 100);
+                    sourisPointer.GetComponentInChildren<TextMesh>().text = PA.ToString();
+                }
+            }
+            yield return new WaitForSeconds(0.10f) ;
+        }
+        coroutine = false;
+    }
 	void LateUpdate()
 	{
 		if (isMoving) 
