@@ -33,6 +33,8 @@ public class CameraController : MonoBehaviour
 	// follow
 	public float followSmoothSpeed; // used to lerp the follow
 
+    Vector3 vect;
+
 	#endregion
 
 	#region Other Variables
@@ -45,7 +47,8 @@ public class CameraController : MonoBehaviour
 
 	private void Start()
 	{
-			status = MyCameraStatusEnum.AT_PLAYER; // the camera must start at AT_PLAYER status
+		status = MyCameraStatusEnum.AT_PLAYER; // the camera must start at AT_PLAYER status
+        vect = new Vector3(transform.position.x - thePlayer.transform.position.x, transform.position.y - thePlayer.transform.position.y, transform.position.z - thePlayer.transform.position.z);
 	}
 
 	private void Update()
@@ -103,13 +106,13 @@ public class CameraController : MonoBehaviour
 		// y of the camera, to discovery the position to follow
 		// ps: this stuff avoid problems with the follow, when zoom is different than default.
 		// TODO: Look for a better solution to do this. Maybe use distance from focus point as reference.
-		while (goal.y < transform.position.y)
-		{
-			goal += -cameraObject.transform.forward * 0.5f;
-		}
+		//while (goal.y < transform.position.y)
+		//{
+		//	goal += -cameraObject.transform.forward * 0.5f;
+		//}
 
 		// do the movement
-		transform.position = Vector3.Lerp(transform.position, goal, Time.deltaTime * followSmoothSpeed);
+		transform.position = Vector3.Lerp(transform.position, goal + vect, Time.deltaTime * followSmoothSpeed);
 	}
 
 	/// <summary>
