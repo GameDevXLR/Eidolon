@@ -40,6 +40,7 @@ public class CharacIsomController : MonoBehaviour {
             {
                 if (Input.GetMouseButton(0))
                 {
+                    
                     Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
                     RaycastHit[] hits = Physics.RaycastAll(ray, 2000f, layer_mask);
                     if (hits.Length > 0)
