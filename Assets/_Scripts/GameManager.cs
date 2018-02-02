@@ -20,7 +20,14 @@ public class GameManager : MonoBehaviour {
     
     public GameObject PAPanel;
 
+	public bool isPlayingIntroVideo = true;
+
+	public GameObject introVideoObj;
+	public GameObject blackScreenObj;
+	public Canvas mainCanvas;
+	public float videoDuration;
     #endregion
+	float videoTimer = 0;
 
     #region Monobehavior Methods
 
@@ -29,18 +36,37 @@ public class GameManager : MonoBehaviour {
         if(instance == null)
         {
             instance = this;
-            isInDialogue = true;
-            DialogueController.instance.Initialize(0);
-            PAPanel.SetActive(false);
+
         }
         else
         {
             Destroy(gameObject);
         }
     }
-
+	void FixedUpdate()
+	{
+		if (isPlayingIntroVideo) 
+		{
+			if (videoTimer > 1.5f && blackScreenObj.activeInHierarchy) 
+			{
+				blackScreenObj.SetActive (false);
+			}
+			videoTimer += Time.fixedDeltaTime;
+			if (videoTimer > videoDuration) 
+			{
+				StopVideo ();
+			}
+		}
+	}
     void Update()
     {
+		if (isPlayingIntroVideo) 
+		{
+			if(Input.GetMouseButtonDown(0))
+			{
+				StopVideo ();
+			}
+		}
         if (!isInDialogue)
         {
             if (Input.GetMouseButtonDown(0))
@@ -56,6 +82,23 @@ public class GameManager : MonoBehaviour {
     #endregion
 
     #region other Methods
+
+	public void StopVideo()
+	{
+		GetComponent<AudioSource> ().enabled = true;
+		mainCanvas.enabled = true;
+		introVideoObj.SetActive (false);
+		InitializeDialog ();
+		isPlayingIntroVideo = false;
+	}
+
+	public void InitializeDialog()
+	{
+		isInDialogue = true;
+		DialogueController.instance.Initialize(0);
+		PAPanel.SetActive(false);
+	}
+	
     public void activePA()
     {
         PAPanel.SetActive(true);
@@ -94,7 +137,8 @@ public class GameManager : MonoBehaviour {
 			if (!find) 
 			{
 				i++;
-			}        }
+			}        
+		}
         if (find)
         {
             playerCurrent = personnagesList[i];
