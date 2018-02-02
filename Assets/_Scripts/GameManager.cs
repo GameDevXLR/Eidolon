@@ -91,8 +91,10 @@ public class GameManager : MonoBehaviour {
         while(!find && i < personnagesList.Count)
         {
             find = personnagesList[i].PA > 0;
-            i = (find)? i:i++;
-        }
+			if (!find) 
+			{
+				i++;
+			}        }
         if (find)
         {
             playerCurrent = personnagesList[i];
