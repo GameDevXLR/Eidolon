@@ -21,8 +21,11 @@ public class CharacIsomController : MonoBehaviour {
 
     public GameObject sourisPointer;
 
-	// Use this for initialization
-	void Start () 
+
+    bool first = true;
+
+    // Use this for initialization
+    void Start () 
 	{
 		agent = GetComponent<NavMeshAgent> ();
 		newForward = Camera.main.transform.forward;
@@ -65,7 +68,10 @@ public class CharacIsomController : MonoBehaviour {
 	}
 
 
-
+    public void stopMovingPointer()
+    {
+        first = true;
+    }
 
 
     public void move()
@@ -80,7 +86,7 @@ public class CharacIsomController : MonoBehaviour {
     IEnumerator setMousePointer()
     {
         coroutine = true;
-        bool first = true; 
+        first = true; 
         while (Input.GetMouseButton(0) && coroutine)
         {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
@@ -93,23 +99,19 @@ public class CharacIsomController : MonoBehaviour {
                     {
                         setPath(path);
                         GameManager.instance.playerCurrent.setPA(-PA);
+                        sourisPointer.GetComponent<LineRenderer>().positionCount = 0;
+                        sourisPointer.SetActive(false);
                     }
                 }
-                else if (hits[0].collider.gameObject.tag != "pointeur")
+                else if (hits[0].collider.gameObject.tag != "pointeur" && hits[0].collider.gameObject.tag != "object")
                 {
                     path = new NavMeshPath();
                     if (NavMesh.CalculatePath(transform.position, hits[0].point, NavMesh.AllAreas, path))
                     {
 
                         PA = (int)(InteractionPlayerManager.GetPathLength(path) / gameObject.GetComponent<InteractionPlayerManager>().distanceByAction) + 1;
-                        sourisPointer.GetComponent<LineRenderer>().positionCount = path.corners.Length;
 
-                        sourisPointer.GetComponent<LineRenderer>().SetPositions(path.corners);
-
-                        sourisPointer.SetActive(true);
-                        sourisPointer.transform.position = transform.position;
-                        sourisPointer.transform.position = Vector3.Lerp(transform.position, hits[0].point, Time.deltaTime * 100);
-                        sourisPointer.GetComponentInChildren<TextMesh>().text = PA.ToString();
+                        setPointeurMouse(hits[0].point, path);
                     }
                     first = false;
                 }
@@ -133,6 +135,17 @@ public class CharacIsomController : MonoBehaviour {
 		transform.forward = faceDir;
 
 	}
+
+    public void setPointeurMouse(Vector3 pos, NavMeshPath path)
+    {
+        sourisPointer.GetComponent<LineRenderer>().positionCount = path.corners.Length;
+        sourisPointer.GetComponent<LineRenderer>().SetPositions(path.corners);
+
+        sourisPointer.SetActive(true);
+        sourisPointer.transform.position = transform.position;
+        sourisPointer.transform.position = Vector3.Lerp(transform.position, pos, Time.deltaTime * 100);
+        sourisPointer.GetComponentInChildren<TextMesh>().text = PA.ToString();
+    }
 
     public void setPath(Vector3 destination)
     {

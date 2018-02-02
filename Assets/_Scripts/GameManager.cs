@@ -41,9 +41,16 @@ public class GameManager : MonoBehaviour {
 
     void Update()
     {
-        if (!isInDialogue && Input.GetMouseButtonDown(0))
+        if (!isInDialogue)
         {
-            playerCurrent.gameObject.GetComponent<CharacIsomController>().move();
+            if (Input.GetMouseButtonDown(0))
+            {
+                playerCurrent.gameObject.GetComponent<CharacIsomController>().move();
+            }
+            else if(Input.GetMouseButtonDown(0))
+            {
+                playerCurrent.gameObject.GetComponent<CharacIsomController>().stopMovingPointer();
+            }
         }
     }
     #endregion

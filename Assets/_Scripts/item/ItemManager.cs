@@ -20,7 +20,7 @@ public class ItemManager : MonoBehaviour {
 
     private void OnMouseDown()
     {
-        if (!GameManager.instance.isInDialogue)
+        if (!GameManager.instance.isInDialogue && path != null)
         {
             goTo();
         }
