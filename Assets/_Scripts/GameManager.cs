@@ -47,7 +47,7 @@ public class GameManager : MonoBehaviour {
             {
                 playerCurrent.gameObject.GetComponent<CharacIsomController>().move();
             }
-            else if(Input.GetMouseButtonDown(0))
+            else if(Input.GetMouseButtonUp(0))
             {
                 playerCurrent.gameObject.GetComponent<CharacIsomController>().stopMovingPointer();
             }

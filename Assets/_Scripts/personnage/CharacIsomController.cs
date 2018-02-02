@@ -70,6 +70,7 @@ public class CharacIsomController : MonoBehaviour {
 
     public void stopMovingPointer()
     {
+        coroutine = false;
         first = true;
     }
 

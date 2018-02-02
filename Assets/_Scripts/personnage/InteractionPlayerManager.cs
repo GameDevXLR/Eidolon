@@ -131,7 +131,7 @@ public class InteractionPlayerManager : MonoBehaviour {
         PATxt.text = this.PA.ToString();
         if(this.PA == 0)
         {
-
+            GameManager.instance.nexPerso();
         }
     }
 
