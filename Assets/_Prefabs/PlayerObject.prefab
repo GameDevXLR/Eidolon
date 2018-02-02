@@ -2599,6 +2599,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   anim: {fileID: 95162210800738588}
+  sourisPointer: {fileID: 0}
 --- !u!137 &137861071552703162
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1
