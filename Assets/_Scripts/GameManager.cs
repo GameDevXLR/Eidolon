@@ -43,13 +43,13 @@ public class GameManager : MonoBehaviour {
     {
         if (!isInDialogue)
         {
-            if (Input.GetMouseButtonDown(0))
+            if (Input.GetMouseButton(0))
             {
                 playerCurrent.gameObject.GetComponent<CharacIsomController>().move();
             }
             else if(Input.GetMouseButtonUp(0))
             {
-                playerCurrent.gameObject.GetComponent<CharacIsomController>().stopMovingPointer();
+                //playerCurrent.gameObject.GetComponent<CharacIsomController>().stopMovingPointer();
             }
         }
     }
@@ -74,9 +74,12 @@ public class GameManager : MonoBehaviour {
 
     public void changePerso(InteractionPlayerManager perso)
     {
-        playerCurrent = perso;
-        perso.init();
-        cam.thePlayer = perso.gameObject;
+        if (perso.PA > 0)
+        {
+            playerCurrent = perso;
+            perso.init();
+            cam.thePlayer = perso.gameObject;
+        }
     }
 
     public void addObjInPerso(GameObject obj)
@@ -84,18 +87,19 @@ public class GameManager : MonoBehaviour {
            
     }
 
-    public void nexPerso()
+    public void nextPerso()
     {
         int i = 0;
         bool find = false;
-        while(!find && i < personnagesList.Count)
+        while (!find && i < personnagesList.Count)
         {
-            find = personnagesList[i].PA > 0;
-            i = (find)? i:i++;
-        }
+            find = personnagesList[i].PA != 0;
+            if (find == false)
+                i++;
+        } 
         if (find)
         {
-            playerCurrent = personnagesList[i];
+            changePerso( personnagesList[i]);
         }
         else
         {
@@ -110,7 +114,12 @@ public class GameManager : MonoBehaviour {
         {
             perso.setPA(2);
         }
-        playerCurrent = personnagesList[0];
+        changePerso(personnagesList[0]);
+    }
+
+    public void test()
+    {
+        Debug.Log("load");
     }
     
     #endregion

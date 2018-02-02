@@ -77,50 +77,51 @@ public class CharacIsomController : MonoBehaviour {
 
     public void move()
     {
-        if (!isMoving)
-        {
-            StartCoroutine(setMousePointer());
-        }
+        setMousePointer();
+       
     }
 
 
-    IEnumerator setMousePointer()
+    public void setMousePointer()
     {
-        coroutine = true;
-        first = true; 
-        while (Input.GetMouseButton(0) && coroutine)
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        RaycastHit[] hits = Physics.RaycastAll(ray, 2000f, layer_mask);
+        if (hits.Length > 0)
         {
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            RaycastHit[] hits = Physics.RaycastAll(ray, 2000f, layer_mask);
-            if (hits.Length > 0)
+            //Debug.Log(hits[0].collider.gameObject.tag);
+            //if(hits[0].collider.gameObject.tag == "pointeur" )
+            //{
+            //    if (GameManager.instance.playerCurrent.PA > 0 && PA <= GameManager.instance.playerCurrent.PA)
+            //    {
+            //        setPath(path);
+            //        GameManager.instance.playerCurrent.setPA(-PA);
+            //        sourisPointer.GetComponent<LineRenderer>().positionCount = 0;
+            //        sourisPointer.SetActive(false);
+            //    }
+            //}
+            //else 
+            if (hits[0].collider.gameObject.tag != "object" && hits[0].collider.gameObject.tag != "pointeur")
             {
-                if(hits[0].collider.gameObject.tag == "pointeur" && first)
+                path = new NavMeshPath();
+                if (NavMesh.CalculatePath(transform.position, hits[0].point, NavMesh.AllAreas, path))
                 {
-                    if (GameManager.instance.playerCurrent.PA > 0 && PA <= GameManager.instance.playerCurrent.PA)
-                    {
-                        setPath(path);
-                        GameManager.instance.playerCurrent.setPA(-PA);
-                        sourisPointer.GetComponent<LineRenderer>().positionCount = 0;
-                        sourisPointer.SetActive(false);
-                    }
-                }
-                else if (hits[0].collider.gameObject.tag != "pointeur" && hits[0].collider.gameObject.tag != "object")
-                {
-                    path = new NavMeshPath();
-                    if (NavMesh.CalculatePath(transform.position, hits[0].point, NavMesh.AllAreas, path))
-                    {
 
-                        PA = (int)(InteractionPlayerManager.GetPathLength(path) / gameObject.GetComponent<InteractionPlayerManager>().distanceByAction) + 1;
+                    PA = (int)(InteractionPlayerManager.GetPathLength(path) / gameObject.GetComponent<InteractionPlayerManager>().distanceByAction) + 1;
 
-                        setPointeurMouse(hits[0].point, path);
-                    }
-                    first = false;
+                    setPointeurMouse(hits[0].point, path);
                 }
-                
+                first = false;
             }
-            
-            yield return new WaitForSeconds(0.10f);
+                
         }
+            
+        
+    }
+
+    public void deactvatePointerMouse()
+    {
+        sourisPointer.GetComponent<LineRenderer>().positionCount = 0;
+        sourisPointer.SetActive(false);
     }
 
     public void ExecuteMovement ()
@@ -137,6 +138,8 @@ public class CharacIsomController : MonoBehaviour {
 
 	}
 
+
+
     public void setPointeurMouse(Vector3 pos, NavMeshPath path)
     {
         sourisPointer.GetComponent<LineRenderer>().positionCount = path.corners.Length;
@@ -150,14 +153,22 @@ public class CharacIsomController : MonoBehaviour {
 
     public void setPath(Vector3 destination)
     {
-        agent.SetDestination(destination);
-        beginMoving();
+        
+        if(PA <= GameManager.instance.playerCurrent.PA)
+        {
+
+            agent.SetDestination(destination);
+            GameManager.instance.playerCurrent.setPA(-PA);
+            beginMoving();
+            deactvatePointerMouse();
+        }
     }
 
     public void setPath(NavMeshPath path)
     {
         agent.SetPath(path);
         beginMoving();
+        deactvatePointerMouse();
     }
 
     public void beginMoving()
