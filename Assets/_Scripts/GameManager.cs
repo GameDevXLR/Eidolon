@@ -14,6 +14,8 @@ public class GameManager : MonoBehaviour {
 
     public InteractionPlayerManager playerCurrent;
 
+    public List<InteractionPlayerManager> personnagesList;
+
     public bool isInDialogue = true;
     
     public GameObject PAPanel;
@@ -34,6 +36,14 @@ public class GameManager : MonoBehaviour {
         else
         {
             Destroy(gameObject);
+        }
+    }
+
+    void Update()
+    {
+        if (!isInDialogue && Input.GetMouseButtonDown(0))
+        {
+            playerCurrent.gameObject.GetComponent<CharacIsomController>().move();
         }
     }
     #endregion
@@ -60,6 +70,40 @@ public class GameManager : MonoBehaviour {
         playerCurrent = perso;
         perso.init();
         cam.thePlayer = perso.gameObject;
+    }
+
+    public void addObjInPerso(GameObject obj)
+    {
+           
+    }
+
+    public void nexPerso()
+    {
+        int i = 0;
+        bool find = false;
+        while(!find && i < personnagesList.Count)
+        {
+            find = personnagesList[i].PA > 0;
+            i = (find)? i:i++;
+        }
+        if (find)
+        {
+            playerCurrent = personnagesList[i];
+        }
+        else
+        {
+            LaunchEndTurn();
+        }
+        
+    }
+
+    public void LaunchEndTurn()
+    {
+        foreach (InteractionPlayerManager perso in personnagesList)
+        {
+            perso.setPA(2);
+        }
+        playerCurrent = personnagesList[0];
     }
     
     #endregion

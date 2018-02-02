@@ -129,6 +129,10 @@ public class InteractionPlayerManager : MonoBehaviour {
     {
         this.PA += PA;
         PATxt.text = this.PA.ToString();
+        if(this.PA == 0)
+        {
+
+        }
     }
 
 

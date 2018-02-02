@@ -18,7 +18,7 @@ public class ItemUIManager : MonoBehaviour {
 
     public void action()
     {
-        item.action();
+        item.goTo();
         
     }
 
