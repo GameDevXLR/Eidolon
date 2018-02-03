@@ -26,6 +26,14 @@ public class GameManager : MonoBehaviour {
 	public GameObject blackScreenObj;
 	public Canvas mainCanvas;
 	public float videoDuration;
+
+	public AudioSource SoundEffectAudioS;
+
+	public AudioClip actionConfirmedSnd;
+
+
+    public GameObject QuitButton;
+
     #endregion
 	float videoTimer = 0;
 
@@ -89,6 +97,7 @@ public class GameManager : MonoBehaviour {
 
 	public void StopVideo()
 	{
+		blackScreenObj.SetActive (false);
 		GetComponent<AudioSource> ().enabled = true;
 		mainCanvas.enabled = true;
 		introVideoObj.SetActive (false);
@@ -150,6 +159,7 @@ public class GameManager : MonoBehaviour {
         obj.GetComponent<ItemManager>().isActivable = true;
         foreach (InteractionPlayerManager perso in personnagesList)
         {
+			SoundEffectAudioS.PlayOneShot (actionConfirmedSnd);
             perso.objectInteractableList.Add(obj);
         }
     }
@@ -204,6 +214,16 @@ public class GameManager : MonoBehaviour {
     {
         Debug.Log("load");
     }
-    
+
+    public void QuitTheGame()
+    {
+        Application.Quit();
+    }
+
+    public void activeQuitButton()
+    {
+        QuitButton.SetActive(true);
+    }
+
     #endregion
 }

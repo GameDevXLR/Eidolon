@@ -82,8 +82,11 @@ public class InteractionPlayerManager : MonoBehaviour {
                 {
                     GameObject uiObj = Instantiate(prefabUIListObj);
                     uiObj.transform.SetParent(UIList.transform);
+					uiObj.GetComponent<RectTransform>().localPosition = Vector3.zero;
+					uiObj.transform.localScale = Vector3.one;
                     uiObj.GetComponent<ItemUIManager>().setText(obj.GetComponent<ItemManager>().nameItem, "PA : " + entry.Key);
                     uiObj.GetComponent<ItemUIManager>().item = obj.GetComponent<ItemManager>();
+					uiObj.GetComponent<Image> ().sprite = obj.GetComponent<ItemManager> ().buttonImg;
                 }
             }
         }

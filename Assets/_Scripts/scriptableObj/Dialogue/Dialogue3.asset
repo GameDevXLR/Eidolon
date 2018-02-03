@@ -17,12 +17,10 @@ MonoBehaviour:
     answer: 0
     sentenceList:
     - This is the end of the demo.
-    - I hope you enjoyed it !
-    - ' And want to see more ;) '
+    - 'I hope you enjoyed it and want to see more ;) '
   - player: 2
     choice: 0
     answer: 0
     sentenceList:
     - ' You can walk around to take a look at the first stage.'
-    - Using the elevator will end the game.
   personnage: []

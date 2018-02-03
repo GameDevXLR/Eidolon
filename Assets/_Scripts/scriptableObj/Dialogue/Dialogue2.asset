@@ -18,12 +18,6 @@ MonoBehaviour:
     sentenceList:
     - Stay with me Rachael, don't close your eyes and take a break. I will look at
       the monitoring board.
-  - player: 1
-    choice: 0
-    answer: 0
-    sentenceList:
-    - Stay with me Rachael, don't close your eyes and take a break. I will look at
-      the monitoring board.
   - player: 2
     choice: 0
     answer: 0
