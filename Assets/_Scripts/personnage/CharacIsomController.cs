@@ -9,9 +9,12 @@ public class CharacIsomController : MonoBehaviour {
 	Vector3 newForward;
 	Vector3 newRight;
 	public bool mouseClicControlled;
-	public LayerMask layer_mask;
-	NavMeshAgent agent;
+    public LayerMask layer_mask;
+    public LayerMask layer_mask_Second;
+    NavMeshAgent agent;
     NavMeshPath path;
+
+    float time;
 
     int PA = 0;
 	public Animator anim;
@@ -20,6 +23,7 @@ public class CharacIsomController : MonoBehaviour {
     bool coroutine = false;
 
     public GameObject sourisPointer;
+    public GameObject posPing;
 
 
     bool first = true;
@@ -77,7 +81,8 @@ public class CharacIsomController : MonoBehaviour {
 
     public void move()
     {
-        setMousePointer();
+        if(!isMoving)
+            setMousePointer();
        
     }
 
@@ -85,43 +90,84 @@ public class CharacIsomController : MonoBehaviour {
     public void setMousePointer()
     {
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        RaycastHit[] hits = Physics.RaycastAll(ray, 2000f, layer_mask);
-        if (hits.Length > 0)
+        RaycastHit hit;
+        if (Physics.Raycast(ray, out hit,100, layer_mask_Second))
         {
-            //Debug.Log(hits[0].collider.gameObject.tag);
-            //if(hits[0].collider.gameObject.tag == "pointeur" )
-            //{
-            //    if (GameManager.instance.playerCurrent.PA > 0 && PA <= GameManager.instance.playerCurrent.PA)
-            //    {
-            //        setPath(path);
-            //        GameManager.instance.playerCurrent.setPA(-PA);
-            //        sourisPointer.GetComponent<LineRenderer>().positionCount = 0;
-            //        sourisPointer.SetActive(false);
-            //    }
-            //}
-            //else 
-            if (hits[0].collider.gameObject.tag != "object" && hits[0].collider.gameObject.tag != "pointeur")
+            path = new NavMeshPath();
+            if (NavMesh.CalculatePath(transform.position, hit.point, NavMesh.AllAreas, path))
+            {
+
+                PA = (int)(InteractionPlayerManager.GetPathLength(path) / gameObject.GetComponent<InteractionPlayerManager>().distanceByAction) + 1;
+
+                setPointeurMouse(hit.point, path);
+            }
+            first = false;
+        }
+    }
+
+    public void effectOnMouseUp()
+    {
+        if (Time.fixedTime - time < 0.15)
+        {
+            if (PA <= GameManager.instance.playerCurrent.PA)
+            {
+                GameManager.instance.playerCurrent.setPA(-PA);
+                setPath(path);
+            }
+                
+        }
+    }
+    public void effectOnMouseDown()
+    {
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        RaycastHit hit;
+        if (Physics.Raycast(ray, out hit, 100, layer_mask))
+        {
+            if (hit.collider.gameObject.tag != "pointeur")
             {
                 path = new NavMeshPath();
-                if (NavMesh.CalculatePath(transform.position, hits[0].point, NavMesh.AllAreas, path))
+                if (NavMesh.CalculatePath(transform.position, hit.point, NavMesh.AllAreas, path))
                 {
 
                     PA = (int)(InteractionPlayerManager.GetPathLength(path) / gameObject.GetComponent<InteractionPlayerManager>().distanceByAction) + 1;
 
-                    setPointeurMouse(hits[0].point, path);
+                    setPointeurMouse(hit.point, path);
                 }
-                first = false;
             }
-                
+            else
+            {
+                time = Time.fixedTime;
+            }
         }
-            
-        
+
     }
+
+    public void effectOnMouse()
+    {
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        RaycastHit hit;
+        if (Physics.Raycast(ray, out hit, 100, layer_mask))
+        {
+            if (hit.collider.gameObject.tag != "pointeur")
+            {
+                path = new NavMeshPath();
+                if (NavMesh.CalculatePath(transform.position, hit.point, NavMesh.AllAreas, path))
+                {
+
+                    PA = (int)(InteractionPlayerManager.GetPathLength(path) / gameObject.GetComponent<InteractionPlayerManager>().distanceByAction) + 1;
+
+                    setPointeurMouse(hit.point, path);
+                }
+            }
+        }
+    }
+
 
     public void deactvatePointerMouse()
     {
         sourisPointer.GetComponent<LineRenderer>().positionCount = 0;
         sourisPointer.SetActive(false);
+        posPing.SetActive(false);
     }
 
     public void ExecuteMovement ()
@@ -144,7 +190,7 @@ public class CharacIsomController : MonoBehaviour {
     {
         sourisPointer.GetComponent<LineRenderer>().positionCount = path.corners.Length;
         sourisPointer.GetComponent<LineRenderer>().SetPositions(path.corners);
-
+        posPing.SetActive(true);
         sourisPointer.SetActive(true);
         sourisPointer.transform.position = transform.position;
         sourisPointer.transform.position = Vector3.Lerp(transform.position, pos, Time.deltaTime * 100);

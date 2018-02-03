@@ -57,7 +57,7 @@ public class ItemManager : MonoBehaviour {
 
     public void enterHover()
     {
-        gameObject.GetComponent<cakeslice.Outline>().enabled =true;
+        gameObject.GetComponent<cakeslice.Outline>().enabled = true;
     }
     public void exitHover()
     {

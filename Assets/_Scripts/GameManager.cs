@@ -43,13 +43,17 @@ public class GameManager : MonoBehaviour {
     {
         if (!isInDialogue)
         {
-            if (Input.GetMouseButton(0))
+            if (Input.GetMouseButtonDown(0))
             {
-                playerCurrent.gameObject.GetComponent<CharacIsomController>().move();
+                playerCurrent.gameObject.GetComponent<CharacIsomController>().effectOnMouseDown();
+            }
+            else if (Input.GetMouseButton(0))
+            {
+                playerCurrent.gameObject.GetComponent<CharacIsomController>().effectOnMouse();
             }
             else if(Input.GetMouseButtonUp(0))
             {
-                //playerCurrent.gameObject.GetComponent<CharacIsomController>().stopMovingPointer();
+                playerCurrent.gameObject.GetComponent<CharacIsomController>().effectOnMouseUp();
             }
         }
     }
@@ -76,15 +80,44 @@ public class GameManager : MonoBehaviour {
     {
         if (perso.PA > 0)
         {
+            playerCurrent.gameObject.GetComponent<CharacIsomController>().sourisPointer.SetActive(false);
+            playerCurrent.gameObject.GetComponent<CharacIsomController>().posPing.SetActive(false);
             playerCurrent = perso;
             perso.init();
             cam.thePlayer = perso.gameObject;
         }
     }
 
+    public void removeObjInPersoList(GameObject obj)
+    {
+        foreach (InteractionPlayerManager perso in personnagesList)
+        {
+            perso.objectInteractableList.Remove(obj);
+        }
+    }
+
     public void addObjInPerso(GameObject obj)
     {
-           
+        foreach (InteractionPlayerManager perso in personnagesList)
+        {
+            perso.objectInteractableList.Add(obj);
+        }
+    }
+
+    public void createObjList()
+    {
+        foreach (InteractionPlayerManager perso in personnagesList)
+        {
+            perso.addObjInUIList();
+        }
+    }
+
+    public void initPerso()
+    {
+        foreach (InteractionPlayerManager perso in personnagesList)
+        {
+            perso.init();
+        }
     }
 
     public void nextPerso()
