@@ -48,6 +48,7 @@ public class DialogueController : MonoBehaviour {
 
     private void Update()
     {
+
         if (Input.GetMouseButtonUp(0))
         {
             if (currentSentences < diaCurrent.sentences.Count)

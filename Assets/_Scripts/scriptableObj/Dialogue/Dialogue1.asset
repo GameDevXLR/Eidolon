@@ -18,6 +18,12 @@ MonoBehaviour:
     sentenceList:
     - Damn! What was that fracking thing! It killed everyone! Shit... look at your
       leg!
+  - player: 1
+    choice: 0
+    answer: 0
+    sentenceList:
+    - Damn! What was that fracking thing! It killed everyone! Shit... look at your
+      leg!
   - player: 2
     choice: 0
     answer: 0
