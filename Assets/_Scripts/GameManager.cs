@@ -26,6 +26,11 @@ public class GameManager : MonoBehaviour {
 	public GameObject blackScreenObj;
 	public Canvas mainCanvas;
 	public float videoDuration;
+
+	public AudioSource SoundEffectAudioS;
+
+	public AudioClip actionConfirmedSnd;
+
     #endregion
 	float videoTimer = 0;
 
@@ -144,6 +149,7 @@ public class GameManager : MonoBehaviour {
     {
         foreach (InteractionPlayerManager perso in personnagesList)
         {
+			SoundEffectAudioS.PlayOneShot (actionConfirmedSnd);
             perso.objectInteractableList.Add(obj);
         }
     }
