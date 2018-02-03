@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 114743230076947754}
   - component: {fileID: 114070275701672746}
   - component: {fileID: 64438813508587718}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: ConsoleSorti.001
   m_TagString: object
   m_Icon: {fileID: 0}
@@ -40,7 +40,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4681271379496126}
   - component: {fileID: 135869820940374312}
-  m_Layer: 0
+  - component: {fileID: 114846770909571694}
+  m_Layer: 8
   m_Name: positionArret
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -54,7 +55,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1938180377728644}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.0054, y: 0, z: -0.0136}
+  m_LocalPosition: {x: -0.0068, y: 0.0002, z: -0.0136}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4764909940697346}
@@ -185,9 +186,42 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 0}
+        m_MethodName: removeObjInPersoList
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 1021325675552818}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 0}
+        m_MethodName: initPerso
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
   isAction: 0
+--- !u!114 &114846770909571694
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1938180377728644}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eac15e19b11b41843a1ce28937abb091, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!135 &135869820940374312
 SphereCollider:
   m_ObjectHideFlags: 1
@@ -198,5 +232,5 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.005
+  m_Radius: 0.008
   m_Center: {x: 0, y: 0, z: 0}

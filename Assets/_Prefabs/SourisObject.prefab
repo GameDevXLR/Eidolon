@@ -39,8 +39,7 @@ GameObject:
   - component: {fileID: 33112280931496650}
   - component: {fileID: 23616584151489684}
   - component: {fileID: 65030242949475166}
-  - component: {fileID: 114834633881540168}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Action_character_move
   m_TagString: pointeur
   m_Icon: {fileID: 0}
@@ -58,8 +57,7 @@ GameObject:
   - component: {fileID: 33867218587626154}
   - component: {fileID: 23178478356898166}
   - component: {fileID: 65657251498230194}
-  - component: {fileID: 114660834122031004}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Action_character_move 1
   m_TagString: pointeur
   m_Icon: {fileID: 0}
@@ -300,28 +298,6 @@ TextMesh:
   m_Color:
     serializedVersion: 2
     rgba: 4294967295
---- !u!114 &114660834122031004
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1368670130304222}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bfc79caef44560d40a91441c5d769ef4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &114834633881540168
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1269814476797132}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bfc79caef44560d40a91441c5d769ef4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!120 &120785889140085344
 LineRenderer:
   m_ObjectHideFlags: 1

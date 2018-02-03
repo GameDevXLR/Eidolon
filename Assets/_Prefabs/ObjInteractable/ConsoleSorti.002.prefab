@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 114960840847994250}
   - component: {fileID: 64019933778326672}
   - component: {fileID: 114393408837579678}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: ConsoleSorti.002
   m_TagString: object
   m_Icon: {fileID: 0}
@@ -40,7 +40,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4001286921610810}
   - component: {fileID: 135254878834781912}
-  m_Layer: 0
+  - component: {fileID: 114983838090456838}
+  m_Layer: 8
   m_Name: positionArret
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -143,11 +144,44 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   positionArret: {fileID: 1136230308036048}
-  nameItem: 
+  nameItem: Sas 2
   PA: 0
   events:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_MethodName: openSas
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 0}
+        m_MethodName: removeObjInPersoList
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 1036701663973864}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 0}
+        m_MethodName: initPerso
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
   isAction: 0
@@ -166,6 +200,17 @@ MonoBehaviour:
   eraseRenderer: 0
   originalLayer: 0
   originalMaterials: []
+--- !u!114 &114983838090456838
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1136230308036048}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eac15e19b11b41843a1ce28937abb091, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!135 &135254878834781912
 SphereCollider:
   m_ObjectHideFlags: 1

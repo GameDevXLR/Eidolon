@@ -224,6 +224,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DoorAnim: {fileID: 95394967285289458}
+  DoorParticle: {fileID: 0}
 --- !u!208 &208473397357474546
 NavMeshObstacle:
   m_ObjectHideFlags: 1
