@@ -19,7 +19,9 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4604883586746106}
-  m_Layer: 0
+  - component: {fileID: 114863408191064410}
+  - component: {fileID: 95394967285289458}
+  m_Layer: 8
   m_Name: PorteSalle2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -37,7 +39,7 @@ GameObject:
   - component: {fileID: 33504279757073878}
   - component: {fileID: 23502146205997984}
   - component: {fileID: 208510990681627862}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: portegauche_blanche_salle01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -55,7 +57,7 @@ GameObject:
   - component: {fileID: 33820337205787220}
   - component: {fileID: 23971968823963094}
   - component: {fileID: 208473397357474546}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: porte_blanche_salle1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -193,6 +195,35 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1681323674335746}
   m_Mesh: {fileID: 4300000, guid: 9674b9cc906e369448fa80c6b1a9e5a3, type: 3}
+--- !u!95 &95394967285289458
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1631703134053478}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 588417fcdfa16b34c84bfa04493847ed, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &114863408191064410
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1631703134053478}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5b7d2a44dfe91144938c300459e6415, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DoorAnim: {fileID: 95394967285289458}
 --- !u!208 &208473397357474546
 NavMeshObstacle:
   m_ObjectHideFlags: 1
