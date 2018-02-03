@@ -12,6 +12,7 @@ public class ItemManager : MonoBehaviour {
     public int PA;
     public UnityEvent events;
     public bool isAction = false;
+	public Sprite buttonImg;
 
     private void Start()
     {

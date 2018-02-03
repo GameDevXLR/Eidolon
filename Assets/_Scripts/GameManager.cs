@@ -89,6 +89,7 @@ public class GameManager : MonoBehaviour {
 
 	public void StopVideo()
 	{
+		blackScreenObj.SetActive (false);
 		GetComponent<AudioSource> ().enabled = true;
 		mainCanvas.enabled = true;
 		introVideoObj.SetActive (false);
