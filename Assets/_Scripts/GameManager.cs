@@ -96,13 +96,19 @@ public class GameManager : MonoBehaviour {
 		isPlayingIntroVideo = false;
 	}
 
-	public void InitializeDialog()
-	{
-		isInDialogue = true;
-		DialogueController.instance.Initialize(0);
-		PAPanel.SetActive(false);
-	}
-	
+    public void InitializeDialog()
+    {
+        isInDialogue = true;
+        DialogueController.instance.Initialize(0);
+        PAPanel.SetActive(false);
+    }
+    public void InitializeDialog(int dia)
+    {
+        isInDialogue = true;
+        DialogueController.instance.Initialize(dia);
+        PAPanel.SetActive(false);
+    }
+
     public void activePA()
     {
         PAPanel.SetActive(true);
@@ -141,6 +147,7 @@ public class GameManager : MonoBehaviour {
 
     public void addObjInPerso(GameObject obj)
     {
+        obj.GetComponent<ItemManager>().isActivable = true;
         foreach (InteractionPlayerManager perso in personnagesList)
         {
             perso.objectInteractableList.Add(obj);

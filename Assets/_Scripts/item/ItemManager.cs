@@ -12,10 +12,12 @@ public class ItemManager : MonoBehaviour {
     public int PA;
     public UnityEvent events;
     public bool isAction = false;
+    public bool isActivable = true;
 
     private void Start()
     {
         gameObject.GetComponent<cakeslice.Outline>().enabled = false;
+        isActivable = true;
     }
 
     private void OnMouseDown()
@@ -41,7 +43,7 @@ public class ItemManager : MonoBehaviour {
     {
         if(GameManager.instance.playerCurrent.PA >= PA)
         {
-            GameManager.instance.setPlayerPath(path);
+            GameManager.instance.setPlayerPath(positionArret.transform.position);
             GameManager.instance.playerCurrent.setPA(-PA);
             isAction = true;
         }
@@ -49,9 +51,10 @@ public class ItemManager : MonoBehaviour {
 
     public void action()
     {
-        if (isAction)
+        if (isAction && isActivable)
         {
             events.Invoke();
+            isActivable = false;
         }
     }
 

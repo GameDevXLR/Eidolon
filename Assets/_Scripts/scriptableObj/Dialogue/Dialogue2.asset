@@ -1,0 +1,90 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4882dca037263947872d9d37f764138, type: 3}
+  m_Name: Dialogue2
+  m_EditorClassIdentifier: 
+  sentences:
+  - player: 1
+    choice: 0
+    answer: 0
+    sentenceList:
+    - Stay with me Rachael, don't close your eyes and take a break. I will look at
+      the monitoring board.
+  - player: 1
+    choice: 0
+    answer: 0
+    sentenceList:
+    - Stay with me Rachael, don't close your eyes and take a break. I will look at
+      the monitoring board.
+  - player: 2
+    choice: 0
+    answer: 0
+    sentenceList:
+    - "Shut up and let me rest\u2026"
+  - player: 1
+    choice: 0
+    answer: 0
+    sentenceList:
+    - ' Frack! We have one of them on the way out! Damn it! What the frack is that
+      thing!'
+  - player: 2
+    choice: 0
+    answer: 0
+    sentenceList:
+    - cough... cough... I don't know but it looks like your mom in the morning.
+  - player: 1
+    choice: 0
+    answer: 0
+    sentenceList:
+    - We have nothing to fight it. We we'll have to run.
+  - player: 2
+    choice: 0
+    answer: 0
+    sentenceList:
+    - Damn! It hurts like hell, I can't get up... I'm already dead.
+  - player: 1
+    choice: 1
+    answer: 0
+    sentenceList:
+    - 'Option 1 (deny) : Poor little kitty... Come on Rachael, stop whining and get
+      up already!'
+    - 'Option 2 (provoke) : Come on Rachael! We''ve already had worst in the mine
+      and we pull it through. Maybe you have a leg and a half and a full fat ass but
+      I still have a foot to kick in it if you don''t get your shit together.'
+    - "Option 3 (ask for a noble sacrifice) : Rachael\u2026 You're already to much
+      hurt. Make what's right and watch where the creature goes while I try to get
+      to the elevator. "
+  - player: 2
+    choice: 0
+    answer: 1
+    sentenceList:
+    - Stop playing with my nerves !
+    - Come on Rachael! We've already had worst in the mine and we pull it through.
+      Maybe you have a leg and a half and a full fat ass but I still have a foot to
+      kick in it if you don't get your shit together.
+    - 'What the frack are you talking about ? I can still do it. If I stay here I''m
+      going to die! '
+  - player: 1
+    choice: 1
+    answer: 0
+    sentenceList:
+    - 'Option 1 : Look at you, you will just faint in the corridor...'
+    - 'Option 2 : That''s our last chance. I will look for help upstairs and come
+      back for you.'
+  - player: 2
+    choice: 0
+    answer: 1
+    sentenceList:
+    - No means no! I'm up and I will run if we have to.
+    - Ok, I trust you Kara. Go and get us some help, I will guide you
+  personnage:
+  - {fileID: 11400000, guid: 3280a53522aa3d843b7519290452de95, type: 2}
+  - {fileID: 11400000, guid: 6a310fed17dd5904b93d4dd2129e800a, type: 2}

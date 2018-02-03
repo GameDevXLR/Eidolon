@@ -31,6 +31,7 @@ public class DialogueController : MonoBehaviour {
     DialogueScriptableObj diaCurrent;
     int currentSentences = 0;
     Sentence sentences;
+    bool isChoice = false;
     #endregion
 
     #region monobehaviour methods
@@ -49,13 +50,13 @@ public class DialogueController : MonoBehaviour {
     private void Update()
     {
 
-        if (Input.GetMouseButtonUp(0))
+        if (Input.GetMouseButtonUp(0) && !isChoice)
         {
             if (currentSentences < diaCurrent.sentences.Count)
                 changeSentence();
-            else if (currentSentences == diaCurrent.sentences.Count)
-                currentSentences++;
-            else if (currentSentences > diaCurrent.sentences.Count)
+            //else if (currentSentences == diaCurrent.sentences.Count)
+              //  currentSentences++;
+            else if (currentSentences >= diaCurrent.sentences.Count)
             {
                 gameObject.SetActive(false);
                 GameManager.instance.activePA();
@@ -72,13 +73,13 @@ public class DialogueController : MonoBehaviour {
     {
 
         diaCurrent = dialogues[dialogueIndex];
+        currentSentences = 0;
         changeSentence();
         gameObject.SetActive(true);
     }
 
     public void changeSentence()
     {
-        
         sentences = diaCurrent.sentences[currentSentences];
         if (!sentences.answer)
         {
@@ -93,9 +94,10 @@ public class DialogueController : MonoBehaviour {
 
             }
             setAlphaPortrait(sentences.player);
-            currentSentences++;
-        }
-        
+            
+       }
+        currentSentences++;
+
     }
 
     public void addSentence(string sentence, int player)
@@ -118,6 +120,7 @@ public class DialogueController : MonoBehaviour {
         txt.text = choice;
 //        txt.color = diaCurrent.personnage[player-1].couleurDialogue;
         Button button = obj.GetComponent<Button>();
+        isChoice = true;
         button.onClick.AddListener(
             delegate {
                 addAnswer(answer, diaCurrent.sentences[currentSentences].player);
@@ -129,7 +132,8 @@ public class DialogueController : MonoBehaviour {
         emptyBox();
         addSentence(sentence, player-1);
         setAlphaPortrait(player);
-        currentSentences++;
+        //currentSentences++;
+        isChoice = false;
     }
 
     public void emptyBox()
