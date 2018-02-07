@@ -9,11 +9,11 @@ public class OpenSas : MonoBehaviour {
 	public AudioClip openSASSnd;
 	public AudioSource audioS;
 
-	public void openSas()
+	public void openSas(bool openDoor)
     {
-        Debug.Log("openSas");
-		DoorAnim.SetBool("DoorOpen", true);
-		DoorParticle.Play ();
+		DoorAnim.SetBool("DoorOpen", openDoor);
+		//pas bon ca:
+//		DoorParticle.Play ();
 		audioS.PlayOneShot (openSASSnd);
 
     }

@@ -19,7 +19,7 @@ public class GameManager : MonoBehaviour {
     public bool isInDialogue = true;
     
     public GameObject PAPanel;
-
+	public GameObject levelPart2;
 	public bool isPlayingIntroVideo = true;
 
 	public GameObject introVideoObj;
@@ -113,6 +113,10 @@ public class GameManager : MonoBehaviour {
     }
     public void InitializeDialog(int dia)
     {
+		if (dia == 1) 
+		{
+			levelPart2.SetActive (true);
+		}
         isInDialogue = true;
         DialogueController.instance.Initialize(dia);
         PAPanel.SetActive(false);

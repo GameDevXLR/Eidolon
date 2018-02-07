@@ -9,6 +9,7 @@ public class ItemManager : MonoBehaviour {
     public GameObject positionArret;
     public string nameItem;
     public NavMeshPath path;
+	public Transform targetSpot;
     public int PA;
     public UnityEvent events;
     public bool isAction = false;
