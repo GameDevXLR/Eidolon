@@ -64,9 +64,13 @@ public class CharacIsomController : MonoBehaviour {
 	{
 		if (isMoving) 
 		{
-			if (Vector3.Distance(transform.position, agent.destination)<2f) 
+//			if (Vector3.Distance(transform.position, agent.destination)<2f) 
+//			{
+//                stopMoving();
+//			}
+			if( !agent.hasPath)
 			{
-                stopMoving();
+				stopMoving ();
 			}
 		}
 	}
@@ -221,12 +225,17 @@ public class CharacIsomController : MonoBehaviour {
     {
         anim.SetBool("Walk", true);
         isMoving = true;
+		anim.transform.localPosition = Vector3.zero;
+		anim.transform.localRotation = Quaternion.identity;
+
     }
 
     public void stopMoving()
     {
         anim.SetBool("Walk", false);
         isMoving = false;
+		anim.transform.localPosition = Vector3.zero;
+		anim.transform.localRotation = Quaternion.identity;
     }
 
 }
