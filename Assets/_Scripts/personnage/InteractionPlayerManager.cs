@@ -11,7 +11,9 @@ public class InteractionPlayerManager : MonoBehaviour {
     public float distanceByAction;
     public GameObject playerObject;
 
-    public GameObject prefabUIListObj;
+    public GameObject consoleUIPrefab;
+	public GameObject interuptorUIPrefab;
+
     public GameObject UIList;
 
     public int PA;
@@ -79,19 +81,27 @@ public class InteractionPlayerManager : MonoBehaviour {
         emptyBox();
         foreach(KeyValuePair<int, List<GameObject>> entry in objInteractableDict)
         {
-            if(entry.Key != -1)
-            {
-                foreach(GameObject obj in entry.Value)
-                {
-                    GameObject uiObj = Instantiate(prefabUIListObj);
-                    uiObj.transform.SetParent(UIList.transform);
-					uiObj.GetComponent<RectTransform>().localPosition = Vector3.zero;
-					uiObj.transform.localScale = Vector3.one;
-                    uiObj.GetComponent<ItemUIManager>().setText(obj.GetComponent<ItemManager>().nameItem, "PA : " + entry.Key);
-                    uiObj.GetComponent<ItemUIManager>().item = obj.GetComponent<ItemManager>();
-					uiObj.GetComponent<Image> ().sprite = obj.GetComponent<ItemManager> ().buttonImg;
-                }
-            }
+			if (entry.Key != -1) {
+				foreach (GameObject obj in entry.Value) {
+					if (obj.GetComponent<ItemManager> ().isConsole) {
+						GameObject uiObj = Instantiate (consoleUIPrefab);
+						uiObj.transform.SetParent (UIList.transform);
+						uiObj.GetComponent<RectTransform> ().localPosition = Vector3.zero;
+						uiObj.transform.localScale = Vector3.one;
+						uiObj.GetComponent<ItemUIManager> ().setText (obj.GetComponent<ItemManager> ().nameItem, "PA : " + entry.Key);
+						uiObj.GetComponent<ItemUIManager> ().item = obj.GetComponent<ItemManager> ();
+//						uiObj.GetComponent<Image> ().sprite = obj.GetComponent<ItemManager> ().buttonImg;
+					} else {
+						GameObject uiObj = Instantiate (interuptorUIPrefab);
+						uiObj.transform.SetParent (UIList.transform);
+						uiObj.GetComponent<RectTransform> ().localPosition = Vector3.zero;
+						uiObj.transform.localScale = Vector3.one;
+						uiObj.GetComponent<ItemUIManager> ().setText (obj.GetComponent<ItemManager> ().nameItem, "PA : " + entry.Key);
+						uiObj.GetComponent<ItemUIManager> ().item = obj.GetComponent<ItemManager> ();
+//						uiObj.GetComponent<Image> ().sprite = obj.GetComponent<ItemManager> ().buttonImg;
+					}
+				}
+			}
         }
     }
 
