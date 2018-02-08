@@ -140,11 +140,19 @@ public class GameManager : MonoBehaviour {
 
     public void changePerso(InteractionPlayerManager perso)
     {
+		if (playerCurrent.PA <= 0) 
+		{
+			playerCurrent.portrait.sprite = playerCurrent.inactiveAvatar;
+
+		}
         if (perso.PA > 0)
         {
             playerCurrent.gameObject.GetComponent<CharacIsomController>().sourisPointer.SetActive(false);
             playerCurrent.gameObject.GetComponent<CharacIsomController>().posPing.SetActive(false);
+			playerCurrent.portrait.sprite = playerCurrent.normalAvatar;
+
             playerCurrent = perso;
+			playerCurrent.portrait.sprite = playerCurrent.highlightedAvatar;
             perso.init();
             cam.thePlayer = perso.gameObject;
         }
@@ -212,6 +220,9 @@ public class GameManager : MonoBehaviour {
             perso.setPA(2);
         }
         changePerso(personnagesList[0]);
+		personnagesList [0].portrait.sprite = personnagesList [0].highlightedAvatar;
+		personnagesList [1].portrait.sprite = personnagesList [1].normalAvatar;
+
     }
 
     public void test()

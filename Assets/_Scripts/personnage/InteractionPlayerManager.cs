@@ -22,6 +22,9 @@ public class InteractionPlayerManager : MonoBehaviour {
     PersonnageScriptableObj perso;
 
     public Text PATxt;
+	public Sprite inactiveAvatar;
+	public Sprite normalAvatar;
+	public Sprite highlightedAvatar;
     public Image portrait;
 
     #endregion
@@ -132,7 +135,7 @@ public class InteractionPlayerManager : MonoBehaviour {
     {
         this.PA += PA;
         PATxt.text = this.PA.ToString();
-        if(this.PA == 0)
+        if(this.PA <= 0)
         {
             GameManager.instance.nextPerso();
         }

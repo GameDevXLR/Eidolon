@@ -12,8 +12,7 @@ public class OpenSas : MonoBehaviour {
 	public void openSas(bool openDoor)
     {
 		DoorAnim.SetBool("DoorOpen", openDoor);
-		//pas bon ca:
-//		DoorParticle.Play ();
+		DoorParticle.Play ();
 		audioS.PlayOneShot (openSASSnd);
 
     }
